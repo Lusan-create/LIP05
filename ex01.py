@@ -85,10 +85,12 @@ while comando != "desligar":
         
         if n2 == 0:#Vê se a divisão foi feita por zero / Check if a division by zero ocurred
             print("O número não pode ser dividido por zero") 
+            i = 1
 
-        else: res = n1 / n2
-        print(f"RESPOSTA: {res:.2f}")
-        i = 1
+        else: 
+            res = n1 / n2
+            print(f"RESPOSTA: {res:.2f}")
+            i = 1
         
     else: #Caso não ouve value error, mas a operação foi escrita de maneira errada. / No value error, but the operation is written wrong
         print ("Você digitou a operação de maneira errada")
@@ -98,7 +100,7 @@ while comando != "desligar":
     
     
     if i == 1: # Da a opção de desligar se a operação ocorreu / Gives the option to shutdown ("desligar") if the operation ocurred
-        comando = input ("Escreva 'desligar' para desligar ou qualquer outra coisa para continuar")
+        comando = input ("\nEscreva 'desligar' para desligar ou qualquer outra coisa para continuar: ")
 
 
 
