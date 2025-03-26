@@ -19,7 +19,7 @@ comando = ""
 error   = 0
 loop    = 1
 
-while comando != "desligar":
+while comando != "desligar" and error < 3:
     
     try:
         a = float(input("Escreva o valor de A: "))
@@ -30,7 +30,8 @@ while comando != "desligar":
         error = error + 1
         print(f"Voce escreveu o tipo de dado errado. {error}/3 erros restantes.")
         loop = 0
-        
+    
+if loop != 0:    
     if 2 * a == 0:
         print("Não é possivel fazer a conta, pois o divizor é 0")
         loop = 2
@@ -71,5 +72,8 @@ while comando != "desligar":
             
     if loop != 0:
         comando = input("'desligar' para desligar ou qualquer outra coisa para continuar:  ")
+        
+if error == 3:
+    print ("\nPrograma desligando por quantidade excessiva de erros \n")
         
         
