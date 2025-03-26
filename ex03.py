@@ -53,8 +53,10 @@ while comando != "desligar":
             res2 = math.sqrt(res2)
         
             res2 = (b - res2) / (2 * a)
-        
-        
+
+            res1 = - res1
+            res2 = - res2
+
             if res1 == res2:
                 
                 print(f"\nRESPOSTA: {res1}")
@@ -68,5 +70,6 @@ while comando != "desligar":
 
             
     if loop != 0:
-        comando = input("'desligar' para desligar ou qualquer outra coisa para continaur")
+        comando = input("'desligar' para desligar ou qualquer outra coisa para continuar:  ")
+        
         
