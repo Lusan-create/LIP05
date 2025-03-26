@@ -15,11 +15,11 @@
 # entrada.
 
 comando    = ""
-codificado = []
 error      = 0
 
 while comando != "desligar" and error < 3:
     
+    codificado = []
     i = 0
     
     protocolo = list(input("Escreva o protocolo: "))
@@ -36,7 +36,7 @@ while comando != "desligar" and error < 3:
             break
         
     #checagem de tamanho da o protocolo
-    if len(protocolo) != 10:
+    if len(protocolo) != 10 and i != 1:
         print("O protocolo está errado")
         error = error + 1
         i = 1
@@ -44,7 +44,6 @@ while comando != "desligar" and error < 3:
    
     
     if i != 1:
-        print (f"\nPrtocolo: {protocolo};\n")
         #Encontrar a zona de medição:
         if protocolo [0] + protocolo [1]   == "01":
             codificado.append("sul")
@@ -67,21 +66,48 @@ while comando != "desligar" and error < 3:
     
     if i != 1:
         #Encontrar Temperatura
-        print(codificado)
         if protocolo [2] == "0":
-            codificado.append(f"+{protocolo [3]}{protocolo [4]},{protocolo [5]}\n")
+            codificado.append(f"+{protocolo [3]}{protocolo [4]},{protocolo [5]}°C")
             print(codificado)
             
         elif protocolo [2] == "1":
-            codificado.append(f"{protocolo [3]}{protocolo [4]},{protocolo [5]}\n")
+            codificado.append(f"{protocolo [3]}{protocolo [4]},{protocolo [5]}°C")
             print(codificado)
             
         else:
             error = error + 1
-            print (f"Protocolo escrito errado {error}/3\n")
+            print (f"Protocolo escrito errado {error}/3")
             i = 1
         
         
+        #Encontrar pluviometria
+    if i != 1:
+        if protocolo[6] == "0" and protocolo[7] == "0" and protocolo[8] == "0":
+            codificado.append(f"{protocolo[9]}mm")
+        
+        elif protocolo[6] == "0" and protocolo[7] == "0":
+            codificado.append(f"{protocolo[8]}{protocolo[9]}mm")
+        
+        elif protocolo[6] == "0":
+            codificado.append(f"{protocolo[7]}{protocolo[8]}{protocolo[9]}")
+        
+        else: codificado.append(f"`{protocolo[6]}{protocolo[7]}{protocolo[8]}{protocolo[9]}")
         
         
+    #Saídas
+    if i != 1:
+    
+        print(f"\nInformações: \n")
+         
+        print(f"Campinas, região: {codificado[0]}")
+    
+        print(f"Temperatura: {codificado[1]}")
+    
+        print(f"Pluviometria: {codificado[2]}")
+    
+    comando = input("\nEscreva 'desligar' para desligar o programa ou qualquer outra coisa para continuar: ")
+    
+
+
+
 
