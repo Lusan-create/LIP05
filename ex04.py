@@ -18,22 +18,33 @@ comando    = ""
 codificado = []
 error      = 0
 
-while comando != "desligar" and comando < 3:
+while comando != "desligar" and error < 3:
     
-    try:
-        protocolo = list(input("Escreva o protocolo: "))
+    i = 0
+    
+    protocolo = list(input("Escreva o protocolo: "))
 
-    except ValueError:
-        error = error + 1
-        i = 1
+    #Checa se todas as posiçãoes da lista são números
+    for x in protocolo:
+        try:
+            int(x) == True
+        except ValueError:
+            error = error + 1
+            print("\nA string deve conter apenas números inteiros")
+            print(f"Erros restantes: {error}/3")
+            i = 1
+            break
         
+    #checagem de tamanho da o protocolo
     if len(protocolo) != 10:
         print("O protocolo está errado")
         error = error + 1
+        i = 1
     
-    print (f"\nPrtocolo: {protocolo};\n")
+   
     
     if i != 1:
+        print (f"\nPrtocolo: {protocolo};\n")
         #Encontrar a zona de medição:
         if protocolo [0] + protocolo [1]   == "01":
             codificado.append("sul")
@@ -49,7 +60,28 @@ while comando != "desligar" and comando < 3:
         
         else:
             error = error + 1
-            print (f"Protocolo escrito errado {error}/3")
+            print (f"Protocolo escrito errado {error}/3\n")
             i = 1
+        
+    
+    
+    if i != 1:
+        #Encontrar Temperatura
+        print(codificado)
+        if protocolo [2] == "0":
+            codificado.append(f"+{protocolo [3]}{protocolo [4]},{protocolo [5]}\n")
+            print(codificado)
+            
+        elif protocolo [2] == "1":
+            codificado.append(f"{protocolo [3]}{protocolo [4]},{protocolo [5]}\n")
+            print(codificado)
+            
+        else:
+            error = error + 1
+            print (f"Protocolo escrito errado {error}/3\n")
+            i = 1
+        
+        
+        
         
 
