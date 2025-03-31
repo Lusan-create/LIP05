@@ -5,7 +5,7 @@
 # 2) Write a python progra, to calculate IMC value (ideial weight) from some specific datas like wheight and height.
 # dont allow inputs that arent numbers. The program must bring the results of the IMC, not the account result
 
-#IMC = weight(KG) + (height²(m))
+#IMC = weight(KG) / (height²(m))
 
 #low Wheight < 18,5
 # 18,5 >= normal weight < 25
@@ -63,7 +63,7 @@ while comando != "desçogar" and error < 3: #Loop to keep the program running / 
 
 # Lets find the IMC / Vamos achar o IMC
     if imc != 999:
-        imc = peso + (altura * altura)
+        imc = peso / (altura * altura)
 
         if error >= 3:
             print("Você excedeu os erros permitidos pelo sistema \n")
