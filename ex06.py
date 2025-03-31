@@ -17,4 +17,3 @@ if min < max:
 elif min > max:
     for y in range (max, min + 1, 1):
         print (y)
-
