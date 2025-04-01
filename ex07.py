@@ -6,10 +6,10 @@
 
 
 # Entrada dos numeros
-n1 = input("Escreva o primeiro número: ")
-n2 = input("Escreva o segundo número: ")
-n3 = input("Escreva o terceiro número: ")
-n4 = input("Escreva o quarto número: ")
+n1 = int(input("Escreva o primeiro número: "))
+n2 = int(input("Escreva o segundo número: "))
+n3 = int(input("Escreva o terceiro número: "))
+n4 = int(input("Escreva o quarto número: "))
 
 # Processamento
 
@@ -29,7 +29,6 @@ elif n4 >= n2 and n4 >= n3 and n4 >= n1:
 
 
 # Menor
-
 if n1 <= n2 and n1 <= n3 and n1 <= n4:
     menor = n1
     
@@ -79,6 +78,7 @@ elif maior == n4 and menor == n2:
 elif maior == n4 and menor == n3:
     if n1 > n2 :
         print(menor, n2, n1, maior)
+        
     else: print(menor, n1, n2, maior)
 
 # N3
@@ -98,6 +98,7 @@ elif maior == n2 and menor == n3:
 elif maior == n3 and menor == n1:
     if n2 > n4:
         print (menor, n4, n2, maior)
+        
     else:print(menor, n2, n4, maior )
     
 elif maior == n3 and menor == n2:
